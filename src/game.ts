@@ -4,6 +4,7 @@ kaboom();
 
 loadSprite("bean", "src/assets/bean.png")
 
+//Player
 const bean = add([
     sprite("bean"),
     pos(80, 40),
