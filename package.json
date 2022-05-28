@@ -1,0 +1,20 @@
+{
+  "name": "kaboomjs-demo",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "esbuild src/game.ts --bundle > build.js",
+    "start": "serve"
+  },
+  "author": "Bjørn",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "esbuild": "^0.14.41",
+    "fs": "^0.0.1-security",
+    "http": "^0.0.1-security",
+    "kaboom": "^2000.2.9",
+    "serve": "^13.0.2"
+  }
+}
