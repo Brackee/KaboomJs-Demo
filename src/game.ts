@@ -2,7 +2,16 @@ import kaboom from 'kaboom'
 
 kaboom();
 
-add([
-    text("hello world"),
-    pos(120, 80)
-]);
+loadSprite("bean", "sprites/bean.png")
+
+const bean = add([
+    sprite("bean"),
+    pos(80, 40),
+    area(),
+    body(),
+])
+
+// .jump() when "space" key is pressed
+onKeyPress("space", () => {[
+    bean.jump()
+]})

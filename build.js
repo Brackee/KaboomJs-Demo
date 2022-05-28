@@ -2683,8 +2683,16 @@ vec4 frag(vec3 pos, vec2 uv, vec4 color, sampler2D tex) {
 
   // src/game.ts
   no();
-  add([
-    text("hello world"),
-    pos(120, 80)
+  loadSprite("bean", "sprites/bean.png");
+  var bean = add([
+    sprite("bean"),
+    pos(80, 40),
+    area(),
+    body()
   ]);
+  onKeyPress("space", () => {
+    [
+      bean.jump()
+    ];
+  });
 })();

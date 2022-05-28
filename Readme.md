@@ -12,4 +12,3 @@
     - Change parameters to see what happens.
     - Subject it to gravity.
     - Add basic action *Jump*.
-- 2: **
