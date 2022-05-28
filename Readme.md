@@ -20,7 +20,7 @@
     - Add Collider
     - Inspector mode (F1) in game.
     - Add multiple obstacles (loop)
-- 4: **Scenes*
+- 4: **Scenes**
     - Create game scene
     - Create game over scene
     - Change sceen on collider
