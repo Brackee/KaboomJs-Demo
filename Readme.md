@@ -20,3 +20,10 @@
     - Add Collider
     - Inspector mode (F1) in game.
     - Add multiple sprites (loop)
+- 4: **Scenes and text**
+    - Create game scene
+    - Create game over scene
+    - Change sceen on collider
+- 5: **Add Score**
+    - Add score label
+    - Add score to game over scene.  
