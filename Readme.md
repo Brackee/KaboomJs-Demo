@@ -6,7 +6,7 @@
 - Run npm run start
     - Navigate to http://localhost:3000/
 
-### Course Content
+## Course Content
 - 1: **Game Object**
     - Instansiate Game Object
     - Change parameters to see what happens.
