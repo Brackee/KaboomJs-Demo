@@ -14,7 +14,7 @@
     - Add basic action *Jump*.
 - 2: **Add Floor and Obastacle**
     - Add floor gameobject without a sprite.
-        - Change jump to only work on ground.
+    - Change jump to only work on ground.
     - Add obstacle gameobject without a sprite.
 - 3: **Collider**
     - Add Collider
