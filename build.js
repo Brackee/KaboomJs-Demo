@@ -2684,7 +2684,9 @@ vec4 frag(vec3 pos, vec2 uv, vec4 color, sampler2D tex) {
   // src/game.ts
   no();
   loadSprite("bean", "src/assets/bean.png");
+  var score;
   scene("game", () => {
+    score = 0;
     const bean = add([
       sprite("bean"),
       pos(80, 40),
@@ -2700,6 +2702,10 @@ vec4 frag(vec3 pos, vec2 uv, vec4 color, sampler2D tex) {
       if (bean.isGrounded()) {
         bean.jump();
       }
+    });
+    onUpdate(() => {
+      score++;
+      scoreLabel.text = score;
     });
     add([
       rect(width(), 64),
@@ -2721,6 +2727,10 @@ vec4 frag(vec3 pos, vec2 uv, vec4 color, sampler2D tex) {
         "obstacle"
       ]);
     });
+    const scoreLabel = add([
+      text(score),
+      pos(24, 24)
+    ]);
   });
   scene("lose", () => {
     add([
@@ -2728,6 +2738,15 @@ vec4 frag(vec3 pos, vec2 uv, vec4 color, sampler2D tex) {
       pos(center()),
       origin("center")
     ]);
+    add([
+      text(`Final score: ${score}`, {
+        size: 34
+      }),
+      pos(center().x, center().y + 64),
+      origin("center")
+    ]);
+    onKeyPress("space", () => go("game"));
+    onClick(() => go("game"));
   });
   go("game");
 })();

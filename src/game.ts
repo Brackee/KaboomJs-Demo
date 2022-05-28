@@ -4,8 +4,13 @@ kaboom();
 
 loadSprite("bean", "src/assets/bean.png")
 
+var score;
+
 // Scene of which determine the game.
 scene("game", () => {
+
+    score = 0;
+    
     //Player
     const bean = add([
         sprite("bean"),
@@ -27,6 +32,12 @@ scene("game", () => {
         if(bean.isGrounded()){
             bean.jump()
         }
+    })
+
+    // onUpdate triggers every frame
+    onUpdate(() => {
+        score++;
+        scoreLabel.text = score
     })
 
     //Floor
@@ -53,6 +64,12 @@ scene("game", () => {
             "obstacle"
         ])
     })
+
+    //Score
+    const scoreLabel = add([
+        text(score),
+        pos(24,24)
+    ])
 })
 
 scene("lose", () => {
@@ -61,6 +78,17 @@ scene("lose", () => {
         pos(center()),
         origin("center")
     ])
+    add([
+        text(`Final score: ${score}`,{
+            size: 34
+        }),
+        pos(center().x, center().y + 64),
+        origin("center")
+    ])
+
+    // go back to game with space is pressed
+    onKeyPress("space", () => go("game"));
+    onClick(() => go("game"));
 })
 
 go("game")
