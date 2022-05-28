@@ -24,6 +24,6 @@
     - Create game scene
     - Create game over scene
     - Change sceen on collider
-- 5: **Add Score**
+- 5: **Score**
     - Add score label
     - Add score to game over scene.  
