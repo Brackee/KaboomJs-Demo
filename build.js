@@ -2691,8 +2691,25 @@ vec4 frag(vec3 pos, vec2 uv, vec4 color, sampler2D tex) {
     body()
   ]);
   onKeyPress("space", () => {
-    [
-      bean.jump()
-    ];
+    if (bean.isGrounded()) {
+      bean.jump();
+    }
   });
+  add([
+    rect(width(), 64),
+    pos(0, height() - 48),
+    outline(4),
+    area(),
+    solid(),
+    color(127, 200, 255)
+  ]);
+  add([
+    rect(48, 64),
+    area(),
+    outline(4),
+    pos(width(), height() - 48),
+    origin("botleft"),
+    color(255, 180, 255),
+    move(LEFT, 240)
+  ]);
 })();

@@ -12,3 +12,7 @@
     - Change parameters to see what happens.
     - Subject it to gravity.
     - Add basic action *Jump*.
+- 2: **Floor and Obastacle**
+    - Add floor gameobject without a sprite.
+    - Change jump to only work on ground.
+    - Add obstacle gameobject without a sprite.
