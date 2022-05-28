@@ -19,7 +19,7 @@
 - 3: **Collider**
     - Add Collider
     - Inspector mode (F1) in game.
-    - Add multiple sprites (loop)
+    - Add multiple obstacles (loop)
 - 4: **Scenes*
     - Create game scene
     - Create game over scene
