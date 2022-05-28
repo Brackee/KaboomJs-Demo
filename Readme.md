@@ -33,4 +33,4 @@
     - Load assets
 - 7: **Mario: Create a level**
     - Define level
-    - Map level icons to sprites
+    - Map level icons to game objects
