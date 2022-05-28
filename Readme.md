@@ -16,5 +16,6 @@
     - Add floor gameobject without a sprite.
     - Add obstacle gameobject without a sprite.
 - 3: **Collider**
+    - Add Collider
     - Inspector mode (F1) in game.
     - Add multiple sprites (loop)
