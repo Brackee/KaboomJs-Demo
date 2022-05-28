@@ -2683,7 +2683,7 @@ vec4 frag(vec3 pos, vec2 uv, vec4 color, sampler2D tex) {
 
   // src/game.ts
   no();
-  loadSprite("bean", "sprites/bean.png");
+  loadSprite("bean", "src/assets/bean.png");
   var bean = add([
     sprite("bean"),
     pos(80, 40),

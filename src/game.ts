@@ -2,7 +2,7 @@ import kaboom from 'kaboom'
 
 kaboom();
 
-loadSprite("bean", "sprites/bean.png")
+loadSprite("bean", "src/assets/bean.png")
 
 const bean = add([
     sprite("bean"),
@@ -12,6 +12,7 @@ const bean = add([
 ])
 
 // .jump() when "space" key is pressed
+// Jump can only be run if the game object contains a body, and are thus affected by gravity.
 onKeyPress("space", () => {[
     bean.jump()
 ]})
