@@ -12,4 +12,9 @@
     - Change parameters to see what happens.
     - Subject it to gravity.
     - Add basic action *Jump*.
-- 2: **
+- 2: **Add Floor and Obastacle**
+    - Add floor gameobject without a sprite.
+    - Add obstacle gameobject without a sprite.
+- 3: **Collider**
+    - Inspector mode (F1) in game.
+    - Add multiple sprites (loop)
