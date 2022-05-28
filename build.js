@@ -2684,39 +2684,50 @@ vec4 frag(vec3 pos, vec2 uv, vec4 color, sampler2D tex) {
   // src/game.ts
   no();
   loadSprite("bean", "src/assets/bean.png");
-  var bean = add([
-    sprite("bean"),
-    pos(80, 40),
-    area(),
-    body()
-  ]);
-  bean.onCollide("obstacle", () => {
-    addKaboom(bean.pos);
-    shake();
-  });
-  onKeyPress("space", () => {
-    if (bean.isGrounded()) {
-      bean.jump();
-    }
-  });
-  add([
-    rect(width(), 64),
-    pos(0, height() - 48),
-    outline(4),
-    area(),
-    solid(),
-    color(127, 200, 255)
-  ]);
-  loop(1, () => {
-    add([
-      rect(48, 64),
+  scene("game", () => {
+    const bean = add([
+      sprite("bean"),
+      pos(80, 40),
       area(),
+      body()
+    ]);
+    bean.onCollide("obstacle", () => {
+      addKaboom(bean.pos);
+      shake();
+      go("lose");
+    });
+    onKeyPress("space", () => {
+      if (bean.isGrounded()) {
+        bean.jump();
+      }
+    });
+    add([
+      rect(width(), 64),
+      pos(0, height() - 48),
       outline(4),
-      pos(width(), height() - 48),
-      origin("botleft"),
-      color(255, 180, 255),
-      move(LEFT, 240),
-      "obstacle"
+      area(),
+      solid(),
+      color(127, 200, 255)
+    ]);
+    loop(1, () => {
+      add([
+        rect(48, 64),
+        area(),
+        outline(4),
+        pos(width(), height() - 48),
+        origin("botleft"),
+        color(255, 180, 255),
+        move(LEFT, 240),
+        "obstacle"
+      ]);
+    });
+  });
+  scene("lose", () => {
+    add([
+      text("Game Over"),
+      pos(center()),
+      origin("center")
     ]);
   });
+  go("game");
 })();
