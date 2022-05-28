@@ -12,6 +12,12 @@ const bean = add([
     body(),
 ])
 
+//Collider, what happens when bean collides with an obstacle.
+bean.onCollide("obstacle", () => {
+    addKaboom(bean.pos);
+    shake();
+})
+
 // .jump() when "space" key is pressed
 // Jump can only be run if the game object contains a body, and are thus affected by gravity.
 onKeyPress("space", () => {
@@ -31,13 +37,17 @@ add([
     color(127, 200, 255)
 ])
 
-//Obstacle
-add([
-    rect(48,64),
-    area(),
-    outline(4),
-    pos(width(), height() -48),
-    origin("botleft"),
-    color(255, 180, 255),
-    move(LEFT,240)
-])
+//Obstacle loop every x second
+loop(1, () => {
+    //Obstacle
+    add([
+        rect(48,64),
+        area(),
+        outline(4),
+        pos(width(), height() -48),
+        origin("botleft"),
+        color(255, 180, 255),
+        move(LEFT,240),
+        "obstacle"
+    ])
+})

@@ -2690,6 +2690,10 @@ vec4 frag(vec3 pos, vec2 uv, vec4 color, sampler2D tex) {
     area(),
     body()
   ]);
+  bean.onCollide("obstacle", () => {
+    addKaboom(bean.pos);
+    shake();
+  });
   onKeyPress("space", () => {
     if (bean.isGrounded()) {
       bean.jump();
@@ -2703,13 +2707,16 @@ vec4 frag(vec3 pos, vec2 uv, vec4 color, sampler2D tex) {
     solid(),
     color(127, 200, 255)
   ]);
-  add([
-    rect(48, 64),
-    area(),
-    outline(4),
-    pos(width(), height() - 48),
-    origin("botleft"),
-    color(255, 180, 255),
-    move(LEFT, 240)
-  ]);
+  loop(1, () => {
+    add([
+      rect(48, 64),
+      area(),
+      outline(4),
+      pos(width(), height() - 48),
+      origin("botleft"),
+      color(255, 180, 255),
+      move(LEFT, 240),
+      "obstacle"
+    ]);
+  });
 })();
