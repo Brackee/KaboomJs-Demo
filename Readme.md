@@ -27,9 +27,9 @@
 - 5: **Score**
     - Add score label
     - Add score to game over scene.  
-- 6: **Mario**
+- 6: **Mario: Init**
     - Initiate Project
     - Create backgorund
     - Load assets
-- 7: **Create a level**
+- 7: **Mario: Create a level**
     - 
