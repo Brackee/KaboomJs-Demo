@@ -2706,6 +2706,7 @@ vec4 frag(vec3 pos, vec2 uv, vec4 color, sampler2D tex) {
   loadSprite("blue-steel", "gqVoI2b.png");
   loadSprite("blue-evil-shroom", "SvV4ueD.png");
   loadSprite("blue-surprise", "RMqCc1G.png");
+  loadSprite("cloud", "Y0oHyRl.png");
   var LEVELS = [
     [
       "                                      ",
@@ -2713,13 +2714,17 @@ vec4 frag(vec3 pos, vec2 uv, vec4 color, sampler2D tex) {
       "                                      ",
       "                                      ",
       "                                      ",
-      "     %   =*=%=                        ",
+      "                                      ",
+      "    %   ~*~%~                         ",
       "                                      ",
       "                            -+        ",
       "                    ^   ^   ()        ",
+      "==============================   =====",
       "==============================   ====="
     ],
     [
+      "\xA3                                       \xA3",
+      "\xA3                                       \xA3",
       "\xA3                                       \xA3",
       "\xA3                                       \xA3",
       "\xA3                                       \xA3",
@@ -2737,6 +2742,11 @@ vec4 frag(vec3 pos, vec2 uv, vec4 color, sampler2D tex) {
     height: 20,
     "=": () => [
       sprite("block"),
+      area(),
+      solid()
+    ],
+    "~": () => [
+      sprite("brick"),
       area(),
       solid()
     ],
@@ -2852,6 +2862,12 @@ vec4 frag(vec3 pos, vec2 uv, vec4 color, sampler2D tex) {
       "ui"
     ], "game");
     const level = addLevel(LEVELS[levelNumber], levelConf);
+    add([
+      sprite("cloud"),
+      scale(0.3),
+      pos(20, 50),
+      layer("bg")
+    ]);
     const player = add([
       sprite("mario"),
       area(),
