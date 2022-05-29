@@ -2843,6 +2843,7 @@ vec4 frag(vec3 pos, vec2 uv, vec4 color, sampler2D tex) {
       scale(0.5)
     ]
   };
+  var SPEED = 120;
   scene("start", () => {
     add([
       text("Press enter to start", { size: 24 }),
@@ -2876,5 +2877,32 @@ vec4 frag(vec3 pos, vec2 uv, vec4 color, sampler2D tex) {
       body(),
       origin("bot")
     ]);
+    onKeyDown("right", () => {
+      player.flipX(false);
+      player.move(SPEED, 0);
+    });
+    onKeyDown("left", () => {
+      player.flipX(true);
+      if (toScreen(player.pos).x > 20) {
+        player.move(-SPEED, 0);
+      }
+    });
+    onKeyPress("space", () => {
+      if (player.grounded()) {
+        player.jump();
+      }
+    });
+    player.onUpdate(() => {
+      var currCam = camPos();
+      if (currCam.x < player.pos.x) {
+        camPos(player.pos.x, currCam.y);
+      }
+    });
+    player.collides("pipe", () => {
+      keyPress("down", () => {
+        let nextLevel = levelNumber + 1;
+        go("game", nextLevel);
+      });
+    });
   });
 })();
