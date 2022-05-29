@@ -35,7 +35,7 @@
     - Define level
     - Map level icons to game objects
     - Adding a scene
-- 8: **Mario: Movement
+- 8: **Mario: Movement**
     - Make Mario move
     - Add scrolling
     - Collider with pipe (next level)
