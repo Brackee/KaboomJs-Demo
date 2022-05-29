@@ -5,6 +5,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "esbuild src/game.ts --bundle > build.js",
+    "build-mario": "esbuild src/mario.ts --bundle > build.js",
     "start": "serve"
   },
   "author": "Bjørn",

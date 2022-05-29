@@ -2681,72 +2681,11 @@ vec4 frag(vec3 pos, vec2 uv, vec4 color, sampler2D tex) {
     return ye;
   }, "default");
 
-  // src/game.ts
-  no();
-  loadSprite("bean", "src/assets/bean.png");
-  var score;
-  scene("game", () => {
-    score = 0;
-    const bean = add([
-      sprite("bean"),
-      pos(80, 40),
-      area(),
-      body()
-    ]);
-    bean.onCollide("obstacle", () => {
-      addKaboom(bean.pos);
-      shake();
-      go("lose");
-    });
-    onKeyPress("space", () => {
-      if (bean.isGrounded()) {
-        bean.jump();
-      }
-    });
-    onUpdate(() => {
-      score++;
-      scoreLabel.text = score;
-    });
-    add([
-      rect(width(), 64),
-      pos(0, height() - 48),
-      outline(4),
-      area(),
-      solid(),
-      color(127, 200, 255)
-    ]);
-    loop(1, () => {
-      add([
-        rect(48, 64),
-        area(),
-        outline(4),
-        pos(width(), height() - 48),
-        origin("botleft"),
-        color(255, 180, 255),
-        move(LEFT, 240),
-        "obstacle"
-      ]);
-    });
-    const scoreLabel = add([
-      text(score),
-      pos(24, 24)
-    ]);
+  // src/mario.ts
+  no({
+    background: [134, 135, 246],
+    width: 320,
+    height: 240,
+    scale: 2
   });
-  scene("lose", () => {
-    add([
-      text("Game Over"),
-      pos(center()),
-      origin("center")
-    ]);
-    add([
-      text(`Final score: ${score}`, {
-        size: 34
-      }),
-      pos(center().x, center().y + 64),
-      origin("center")
-    ]);
-    onKeyPress("space", () => go("game"));
-    onClick(() => go("game"));
-  });
-  go("game");
 })();
