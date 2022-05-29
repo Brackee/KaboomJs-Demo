@@ -34,3 +34,6 @@
 - 7: **Mario: Create a level**
     - Define level
     - Map level icons to game objects
+    - Adding a scene
+- 8: 
+    -  
